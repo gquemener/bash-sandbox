@@ -17,7 +17,7 @@ done
 while [[ ${#PIDS[@]} != 0 ]]; do
     for INDEX in "${!PIDS[@]}"; do
         PID=${PIDS[$INDEX]}
-        kill -0 "$PID" 2&>1 > /dev/null
+        kill -0 "$PID" 2>/dev/null
         if [[ $? = 1 ]]; then
             unset PIDS["$INDEX"]
             TASK=${TASKS[$NEXT_TASK]}
